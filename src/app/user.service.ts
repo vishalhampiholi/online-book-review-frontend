@@ -22,6 +22,9 @@ export class UserService {
     return this.bookReview.postData(endpoint, null, params, headers ).toPromise(); 
 }
 
+getUser(username:string){
+  return this.bookReview.getData('/getUser/'+username);
+}
 
 
 }
