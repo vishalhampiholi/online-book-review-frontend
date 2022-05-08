@@ -1,0 +1,61 @@
+<form [formGroup]="userForm" (ngSubmit)="signup()">
+    <div class="form-group">
+        <label for="userName">User name</label>
+        <input type="text" class="form-control" id="userName" autocomplete="off"
+            formControlName="userName"  minlength="3"  placeholder="user name">
+        <span 
+            *ngIf="userForm.get('userName')?.touched &&
+            userForm.get('userName')?.errors?.['required']">
+            <div>
+                <span id="userNameRequired" class="user-form-error">*Please enter user name</span>
+            </div>
+        </span>
+    </div> 
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" autocomplete="off"
+             formControlName="password" >
+
+             <span 
+             *ngIf="userForm.get('password')?.touched &&
+             userForm.get('password')?.errors?.['required']">
+             <div>
+                 <span id="passwordRequired" class="user-form-error">*Please enter password</span>
+             </div>
+         </span>
+         <span 
+             *ngIf="userForm.get('password')?.touched &&
+             userForm.get('password')?.errors?.['minlength']">
+             <div>
+                 <span id="passwordRequired" class="user-form-error">*Password must be at least 8 characters</span>
+             </div>
+         </span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email"  
+      class="form-control" id="email" autocomplete="off"
+      name="email" formControlName="email" 
+      placeholder="abc@prodapt.com" />
+
+      <span 
+             *ngIf="userForm.get('email')?.touched &&
+             userForm.get('email')?.errors?.['required']">
+             <div>
+                 <span id="emailRequired" class="user-form-error">*Please enter email</span>
+             </div>
+         </span>
+        
+         <span 
+         *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['email']">
+             <div>
+                 <span id="emailRequired" class="user-form-error">*Enter valid email</span>
+             </div>
+         </span>
+    </div>
+    <div>
+        <p>already have an account?<a href="/login">login</a></p>
+    </div>
+    <button type="submit" > Register</button>
+</form>

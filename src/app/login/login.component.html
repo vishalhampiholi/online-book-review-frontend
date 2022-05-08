@@ -1,0 +1,12 @@
+<form class="login-form" [formGroup]="loginForm">
+    <input type="text" placeholder="Username" name="username" required class="form-control"
+        formControlName="username" autocomplete="off">
+    <input type="password" placeholder="Password" required name="password" class="form-control"
+        formControlName="password" #passwordField>
+  
+    <div style="color: #f26566; margin-left: 500px;z-index: auto;">
+        {{loginError}}
+    </div>
+    <input type="submit" class="button" value="Login" (click)="Login()">
+   
+</form>
