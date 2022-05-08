@@ -1,12 +1,41 @@
-<form class="login-form" [formGroup]="loginForm">
-    <input type="text" placeholder="Username" name="username" required class="form-control"
-        formControlName="username" autocomplete="off">
-    <input type="password" placeholder="Password" required name="password" class="form-control"
-        formControlName="password" #passwordField>
-  
-    <div style="color: #f26566; margin-left: 500px;z-index: auto;">
-        {{loginError}}
+
+
+    <div class="container-sm mt-5  bg rad height width">
+        <form class="login-form" [formGroup]="loginForm">
+            <br>
+            <div class="container">
+                <div class="form-group">
+                    <label for="userName" class="text-white">Username</label>
+                    <input type="text" class="form-control" id="userName" autocomplete="off" formControlName="userName" minlength="3"
+                        placeholder="Enter your name">
+                    <span *ngIf="loginForm.get('userName')?.touched &&
+                    loginForm.get('userName')?.errors?.['required']">
+                        <div>
+                            <span id="userNameRequired" class="text-danger">*Please enter user name</span>
+                        </div>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="password"  class="text-white">Password</label>
+                    <input type="password" class="form-control" id="password" autocomplete="off" formControlName="password" placeholder="Enter your password">
+
+                    <span *ngIf="loginForm.get('password')?.touched &&
+                     loginForm.get('password')?.errors?.['required']">
+                        <div>
+                            <span id="passwordRequired" class="text-danger">*Please enter password</span>
+                        </div>
+                    </span>
+                    <span *ngIf="loginForm.get('password')?.touched &&
+                     loginForm.get('password')?.errors?.['minlength']">
+                        <div>
+                            <span id="passwordRequired" class="text-danger">*Password must be at least 8
+                                characters</span>
+                        </div>
+                    </span>
+                </div>
+                <br>
+                <input type="submit"  class="btn btn-outline-success float-end" value="Login" (click)="Login()">
+                <br>
+            </div>
+        </form>
     </div>
-    <input type="submit" class="button" value="Login" (click)="Login()">
-   
-</form>
