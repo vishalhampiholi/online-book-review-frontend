@@ -28,6 +28,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import { BookInfoComponent } from './book-info/book-info.component';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 
@@ -63,7 +65,8 @@ registerLocaleData(en);
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
 
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

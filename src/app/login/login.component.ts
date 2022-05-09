@@ -35,6 +35,9 @@ loginForm!:FormGroup
       alert("Username and Passord cannot be EMPTY");
     }else{
       this.userService.login('/login',this.loginForm.value.username,this.loginForm.value.password).then(res=>{
+        console.log(res);
+        sessionStorage.setItem('username',this.loginForm.value.username);
+        sessionStorage.setItem('role',res[0].role);
         this.router.navigate(['/home']);
     }).catch(error=>{
       this.loginError = "Invalid credentials";

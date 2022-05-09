@@ -1,5 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Element } from '../home/home.component';
+=======
+import { Observable } from 'rxjs';
+import { book } from '../home/home.component';
+>>>>>>> d5545fd34bf8d2a55465464e9131dec69d22dd30
 
 @Component({
   selector: 'app-book-info',
@@ -10,22 +15,9 @@ export class BookInfoComponent implements OnInit {
 
   constructor() { }
   @Input("book")
-  book_info !: Element;
-  name!: string;
-  id !: number;
-  price!: number;
-
+  book_info:any;
 
   ngOnInit(): void {
-  }
-
-  getDetails(){
-
-    console.log(this.book_info)
-    this.name = this.book_info.name
-    this.id = this.book_info.id
-    this.price = this.book_info.price
-
   }
 
 }
