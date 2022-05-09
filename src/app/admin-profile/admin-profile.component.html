@@ -1,74 +1,77 @@
+<app-navbar></app-navbar>
 
+<div class="container">
     <button nz-button nzType="primary" class="add-users" (click)="showModal()">Add User</button>
 
 
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Add admin user" (nzOnCancel)="handleCancel()" >
-    <div *nzModalContent>
-      <form [formGroup]="userForm">
-                  <div class="form-group">
-                      <label for="userName">User name</label>
-                      <input type="text" class="form-control" id="userName" autocomplete="off"
-                          formControlName="userName"  minlength="3"  placeholder="user name">
-                      <span 
-                          *ngIf="userForm.get('userName')?.touched &&
-                          userForm.get('userName')?.errors?.['required']">
-                          <div>
-                              <span id="userNameRequired" class="user-form-error">*Please enter user name</span>
-                          </div>
-                      </span>
-                  </div> 
-                  <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="password" autocomplete="off"
-                           formControlName="password" >
+    <nz-modal [(nzVisible)]="isVisible" nzTitle="Add admin user" (nzOnCancel)="handleCancel()" >
+        <div *nzModalContent>
+          <form [formGroup]="userForm">
+                      <div class="form-group">
+                          <label for="userName">User name</label>
+                          <input type="text" class="form-control" id="userName" autocomplete="off"
+                              formControlName="userName"  minlength="3"  placeholder="user name">
+                          <span
+                              *ngIf="userForm.get('userName')?.touched &&
+                              userForm.get('userName')?.errors?.['required']">
+                              <div>
+                                  <span id="userNameRequired" class="user-form-error">*Please enter user name</span>
+                              </div>
+                          </span>
+                      </div>
+                      <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" class="form-control" id="password" autocomplete="off"
+                               formControlName="password" >
 
-                           <span 
-                           *ngIf="userForm.get('password')?.touched &&
-                           userForm.get('password')?.errors?.['required']">
-                           <div>
-                               <span id="passwordRequired" class="user-form-error">*Please enter password</span>
-                           </div>
-                       </span>
-                       <span 
-                           *ngIf="userForm.get('password')?.touched &&
-                           userForm.get('password')?.errors?.['minlength']">
-                           <div>
-                               <span id="passwordRequired" class="user-form-error">*Password must be at least 8 characters</span>
-                           </div>
-                       </span>
-                  </div>
+                               <span
+                               *ngIf="userForm.get('password')?.touched &&
+                               userForm.get('password')?.errors?.['required']">
+                               <div>
+                                   <span id="passwordRequired" class="user-form-error">*Please enter password</span>
+                               </div>
+                           </span>
+                           <span
+                               *ngIf="userForm.get('password')?.touched &&
+                               userForm.get('password')?.errors?.['minlength']">
+                               <div>
+                                   <span id="passwordRequired" class="user-form-error">*Password must be at least 8 characters</span>
+                               </div>
+                           </span>
+                      </div>
 
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email"  
-                    class="form-control" id="email" autocomplete="off"
-                    name="email" formControlName="email" 
-                    placeholder="abc@prodapt.com" />
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email"
+                        class="form-control" id="email" autocomplete="off"
+                        name="email" formControlName="email"
+                        placeholder="abc@prodapt.com" />
 
-                    <span 
-                           *ngIf="userForm.get('email')?.touched &&
-                           userForm.get('email')?.errors?.['required']">
-                           <div>
-                               <span id="emailRequired" class="user-form-error">*Please enter email</span>
-                           </div>
-                       </span>
+                        <span
+                               *ngIf="userForm.get('email')?.touched &&
+                               userForm.get('email')?.errors?.['required']">
+                               <div>
+                                   <span id="emailRequired" class="user-form-error">*Please enter email</span>
+                               </div>
+                           </span>
 
-                       <span 
-                       *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['email']">
-                           <div>
-                               <span id="emailRequired" class="user-form-error">*Enter valid email</span>
-                           </div>
-                       </span>
-                  </div>
-            
+                           <span
+                           *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['email']">
+                               <div>
+                                   <span id="emailRequired" class="user-form-error">*Enter valid email</span>
+                               </div>
+                           </span>
+                      </div>
 
 
-                 
-                  
-      </form>
-    </div>
-    <div *nzModalFooter>
-      <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
-       <button nz-button nzType="primary" (click)="addUser()">Add</button>
-    </div>
-  </nz-modal>
+
+
+
+          </form>
+        </div>
+        <div *nzModalFooter>
+          <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+           <button nz-button nzType="primary" (click)="addUser()">Add</button>
+        </div>
+      </nz-modal>
+</div>

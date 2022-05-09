@@ -44,7 +44,7 @@ registerLocaleData(en);
     HomeComponent,
     UserProfileComponent,
     AdminProfileComponent,
-    NavbarComponent
+    NavbarComponent,
     BookInfoComponent
   ],
   imports: [
@@ -59,10 +59,7 @@ registerLocaleData(en);
     NzPopconfirmModule,
     NzButtonModule,
     NzInputModule,
-     NgxNavbarModule
-
-
-
+     NgxNavbarModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
