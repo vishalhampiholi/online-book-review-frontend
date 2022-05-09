@@ -1,0 +1,22 @@
+.ant-btn-primary {
+    background-color: rgb(14, 13, 13);
+    color:white;
+    border:none;
+    font-size:1rem;
+    font-weight: bold;
+}
+
+.desc-font{
+    font-size:1rem;
+    color:rgb(255, 255, 255);
+    text-align: center;
+    margin-top:2rem;
+}
+
+.alert{
+    color:red;
+}
+
+.add-users{
+   left:45%;
+}

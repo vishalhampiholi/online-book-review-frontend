@@ -6,6 +6,26 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Subject } from 'rxjs';
 
 
+export interface book{
+  id:number,
+  name:string,
+  author:string,
+  price:number,
+}
+
+const Names:string[]=[
+  'death',
+  'something',
+  'nothing',
+  'inner engineering'
+]
+
+const authors:string[]=[
+  'sadguru',
+  'something',
+  'nothing',
+  'sadguru'
+]
 
 @Component({
   selector: 'app-home',
@@ -21,7 +41,7 @@ export class HomeComponent implements OnInit {
   isEditVisible:boolean=false;
   isAddBookVisible:boolean=false;
   bookForm!:FormGroup;
-
+  status !: boolean;
 
 
 
@@ -54,24 +74,29 @@ export class HomeComponent implements OnInit {
 
   }
   applyFilter(event: Event) {
+    this.status = true;
     const filterValue = (event.target as HTMLInputElement).value;
+    if (filterValue.length == 0){
+      this.status = false;
+    }
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
-  displayedColumns = ['id', 'name', 'author', 'price'];
-  dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
 
-  @ViewChild(MatPaginator) paginator !: MatPaginator;
+  createBook(book_id:number):book{
+    const name =
+    Names[Math.round(Math.random() * (Names.length - 1))]
 
-  /**
-   * Set the paginator after the view init since this component will
-   * be able to query its view for the initialized paginator.
-   */
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+
+    return {
+      id: book_id,
+      name: name,
+      author: authors[Math.round(Math.random() * (authors.length - 1))],
+      price:Math.round(Math.random() * 1000)
+    };
   }
 
 createBookForm(){
@@ -118,4 +143,3 @@ showAddBooksModal(){
 
 
   }
-

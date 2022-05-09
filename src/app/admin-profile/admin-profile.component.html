@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
 
-
-    <button nz-button nzType="primary" class="add-users" (click)="showModal()">Add User</button>
+<div class="container">
+    <h3 class="desc-font">Here you can add new admin </h3>
+    <button nz-button nzType="primary" class="add-users float-start mt-5 " (click)="showModal()">Add User</button>
 
 
     <nz-modal [(nzVisible)]="isVisible" nzTitle="Add admin user" (nzOnCancel)="handleCancel()" >
@@ -15,7 +16,7 @@
                               *ngIf="userForm.get('userName')?.touched &&
                               userForm.get('userName')?.errors?.['required']">
                               <div>
-                                  <span id="userNameRequired" class="user-form-error">*Please enter user name</span>
+                                  <span id="userNameRequired" class="user-form-error alert">*Please enter user name</span>
                               </div>
                           </span>
                       </div>
@@ -28,14 +29,14 @@
                                *ngIf="userForm.get('password')?.touched &&
                                userForm.get('password')?.errors?.['required']">
                                <div>
-                                   <span id="passwordRequired" class="user-form-error">*Please enter password</span>
+                                   <span id="passwordRequired" class="user-form-error alert">*Please enter password</span>
                                </div>
                            </span>
                            <span
                                *ngIf="userForm.get('password')?.touched &&
                                userForm.get('password')?.errors?.['minlength']">
                                <div>
-                                   <span id="passwordRequired" class="user-form-error">*Password must be at least 8 characters</span>
+                                   <span id="passwordRequired" class="user-form-error alert">*Password must be at least 8 characters</span>
                                </div>
                            </span>
                       </div>
@@ -51,14 +52,14 @@
                                *ngIf="userForm.get('email')?.touched &&
                                userForm.get('email')?.errors?.['required']">
                                <div>
-                                   <span id="emailRequired" class="user-form-error">*Please enter email</span>
+                                   <span id="emailRequired" class="user-form-error alert">*Please enter email</span>
                                </div>
                            </span>
 
                            <span
                            *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['email']">
                                <div>
-                                   <span id="emailRequired" class="user-form-error">*Enter valid email</span>
+                                   <span id="emailRequired" class="user-form-error alert">*Enter valid email</span>
                                </div>
                            </span>
                       </div>
