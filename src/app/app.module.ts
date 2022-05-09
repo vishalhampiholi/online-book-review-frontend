@@ -21,6 +21,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 
 registerLocaleData(en);
 
@@ -32,7 +34,8 @@ registerLocaleData(en);
     LoginComponent,
     HomeComponent,
     UserProfileComponent,
-    AdminProfileComponent
+    AdminProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +48,11 @@ registerLocaleData(en);
     NzFormModule,
     NzPopconfirmModule,
     NzButtonModule,
-    NzInputModule
-    
+    NzInputModule,
+     NgxNavbarModule
+
+
+
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
