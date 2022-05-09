@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
-<p>home works!</p>
+<p>{{username}}</p>
+<button nz-button nzType="primary" class="add-users" (click)="showAddBooksModal()">Add Book</button>
+
 <mat-form-field appearance="standard" floatLabel="never">
     <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
   </mat-form-field>
@@ -31,6 +33,16 @@
         <td mat-cell *matCellDef="let row"> {{row.price}} </td>
       </ng-container>
 
+
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let row" class="action-link"> 
+          <a (click)="showEditModal(row)">Edit</a> 
+          <a (click)="deleteBook(row.id)">Delete</a>  
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="more_info(row)"></tr>
 
@@ -45,3 +57,92 @@
   <div>
       <app-book-info [book]="book_info"></app-book-info>
   </div>
+
+  <nz-modal [(nzVisible)]="isEditVisible" nzTitle="Add admin user" (nzOnCancel)="handleCancel()" >
+    <div *nzModalContent>
+      <form [formGroup]="bookForm">
+                  <div class="form-group">
+                      <label for="name">Book name</label>
+                      <input type="text" class="form-control" id="name" autocomplete="off"
+                          formControlName="name"  minlength="3"  placeholder="user name">
+                    <span 
+                          *ngIf="bookForm.get('name')?.touched &&
+                          bookForm.get('name')?.errors?.['required']">
+                          <div>
+                              <span id="userNameRequired" class="user-form-error">*Please enter user name</span>
+                          </div>
+                      </span>
+                  </div> 
+
+
+
+                  <div class="form-group">
+                    <label for="seller">Seller</label>
+                    <input type="text" class="form-control" id="seller" autocomplete="off"
+                        formControlName="seller"  minlength="3"  placeholder="Seller">
+                  <span 
+                        *ngIf="bookForm.get('seller')?.touched &&
+                        bookForm.get('seller')?.errors?.['required']">
+                        <div>
+                            <span id="userNameRequired" class="user-form-error">*Please enter seller name</span>
+                        </div>
+                    </span>
+                </div> 
+
+
+                <div class="form-group">
+                    <label for="author">Author name</label>
+                    <input type="text" class="form-control" id="author" autocomplete="off"
+                        formControlName="author"  minlength="3"  placeholder="user name">
+                  <span 
+                        *ngIf="bookForm.get('author')?.touched &&
+                        bookForm.get('author')?.errors?.['required']">
+                        <div>
+                            <span id="userNameRequired" class="user-form-error">*Please enter author name</span>
+                        </div>
+                    </span>
+                </div> 
+
+
+
+
+                <div class="form-group">
+                    <label for="price">Book name</label>
+                    <input type="text" class="form-control" id="name" autocomplete="off"
+                        formControlName="price"  minlength="3"  placeholder="user name">
+                  <span 
+                        *ngIf="bookForm.get('price')?.touched &&
+                        bookForm.get('price')?.errors?.['required']">
+                        <div>
+                            <span id="userNameRequired" class="user-form-error">*Please enter price</span>
+                        </div>
+                    </span>
+                </div> 
+
+
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="textarea" class="form-control" id="name" autocomplete="off"
+                        formControlName="description"  minlength="3"  placeholder="description">
+                  <span 
+                        *ngIf="bookForm.get('description')?.touched &&
+                        bookForm.get('description')?.errors?.['required']">
+                        <div>
+                            <span id="userNameRequired" class="user-form-error">*Please enter description</span>
+                        </div>
+                    </span>
+                </div> 
+      </form>
+    </div>
+    <div *nzModalFooter>
+      <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+       <button nz-button nzType="primary" (click)="updateBooks()">Add</button>
+    </div>
+  </nz-modal>
+
+
+
+
+
+

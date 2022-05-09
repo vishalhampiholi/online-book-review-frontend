@@ -10,7 +10,6 @@ export class Users{
     private username:string,
     private password:string,
     private email:string,
-    private enabled:boolean,
     private role:string
   ){}
 }
@@ -49,7 +48,6 @@ export class SignupComponent implements OnInit {
       this.userForm.value.userName,
       this.userForm.value.password,
       this.userForm.value.email,
-      true,
       this.role    
     )).subscribe(res=>{
       console.log(res);

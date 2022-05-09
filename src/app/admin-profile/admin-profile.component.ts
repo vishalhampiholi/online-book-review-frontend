@@ -22,7 +22,7 @@ export class book_info{
 
 export class AdminProfileComponent implements OnInit {
   userForm!:FormGroup;
-  role:string="Admin";
+  role:string="ADMIN";
   isVisible:boolean=false;
   bookForm!:FormGroup;
 
@@ -57,7 +57,6 @@ export class AdminProfileComponent implements OnInit {
     this.userService.signup(new Users(this.userForm.value.userName,
       this.userForm.value.password,
       this.userForm.value.email,
-      true,
       this.role    
     )).subscribe(res=>{
       console.log(res);
