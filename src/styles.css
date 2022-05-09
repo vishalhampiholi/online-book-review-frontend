@@ -19,3 +19,6 @@ font-family: 'Red Hat Display', sans-serif;
     background: rgb(0,36,2);
     background: linear-gradient(59deg, rgba(0,36,2,1) 0%, rgba(10,111,100,1) 35%, rgba(38,77,32,1) 100%);
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

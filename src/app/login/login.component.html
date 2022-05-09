@@ -9,11 +9,11 @@
             <br>
             <div class="container">
                 <div class="form-group">
-                    <label for="userName" class="text-white">Username</label>
-                    <input type="text" class="form-control" id="userName" autocomplete="off" formControlName="userName" minlength="3"
+                    <label for="username" class="text-white">Username</label>
+                    <input type="text" class="form-control" id="username" autocomplete="off" formControlName="username" minlength="3"
                         placeholder="Enter your name">
                     <span *ngIf="loginForm.get('userName')?.touched &&
-                    loginForm.get('userName')?.errors?.['required']">
+                    loginForm.get('username')?.errors?.['required']">
                         <div>
                             <span id="userNameRequired" class="text-danger">*Please enter user name</span>
                         </div>

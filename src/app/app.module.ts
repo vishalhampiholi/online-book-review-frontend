@@ -23,6 +23,15 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
+import { BookInfoComponent } from './book-info/book-info.component';
+
+
+
+
 
 registerLocaleData(en);
 
@@ -36,6 +45,7 @@ registerLocaleData(en);
     UserProfileComponent,
     AdminProfileComponent,
     NavbarComponent
+    BookInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +62,11 @@ registerLocaleData(en);
      NgxNavbarModule
 
 
+
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule
 
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
