@@ -21,7 +21,10 @@ export class UserService {
     const headers = new Map().set('Content-Type', 'application/x-www-form-urlencoded');
     return this.bookReview.postData(endpoint, null, params, headers ).toPromise(); 
 }
-
+logout(endpoint: string): Promise<any> {
+  const headers = new Map().set( 'Content-Type','application/x-www-form-urlencoded');
+  return this.bookReview.postData(endpoint, headers).toPromise();
+}
 getUser(username:string){
   return this.bookReview.getData('/getUser/'+username);
 }

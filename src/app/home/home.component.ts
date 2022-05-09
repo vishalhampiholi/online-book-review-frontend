@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Subject } from 'rxjs';
 
 
 export interface book{
@@ -32,6 +33,11 @@ const authors:string[]=[
 })
 export class HomeComponent implements OnInit {
   book_info!: book;
+  @Input() lenght=2;
+  eventsSubject: Subject<book> = new Subject<book>();
+
+
+
 
   constructor() {
     const books = Array.from({length: 100}, (_, k) => this.createBook(k + 1));
@@ -75,6 +81,7 @@ export class HomeComponent implements OnInit {
   }
 more_info(row:book){
   this.book_info=row;
+ 
 
 }
 
