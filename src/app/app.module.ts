@@ -21,6 +21,15 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
+import { BookInfoComponent } from './book-info/book-info.component';
+
+
+
+
 
 registerLocaleData(en);
 
@@ -32,7 +41,8 @@ registerLocaleData(en);
     LoginComponent,
     HomeComponent,
     UserProfileComponent,
-    AdminProfileComponent
+    AdminProfileComponent,
+    BookInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +55,11 @@ registerLocaleData(en);
     NzFormModule,
     NzPopconfirmModule,
     NzButtonModule,
-    NzInputModule
+    NzInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule
     
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

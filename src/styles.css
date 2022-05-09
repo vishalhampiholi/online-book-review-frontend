@@ -12,7 +12,10 @@ html{
 
 body{
     height: 100%;
-    background-image: url(../../../assets/images/bg.jpg)!important;
+    /* background-image: url(../../../assets/images/bg.jpg)!important; */
     background-size: cover;
 
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

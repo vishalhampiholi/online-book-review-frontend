@@ -3,15 +3,29 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Users } from '../signup/signup.component';
 import { UserService } from '../user.service';
 
+export class book_info{
+  constructor(
+    id:number,
+    name:string,
+    seller:string,
+    author:string,
+    price:number,
+    description:string
+  ){}
+}
+
 @Component({
   selector: 'app-admin-profile',
   templateUrl: './admin-profile.component.html',
   styleUrls: ['./admin-profile.component.css']
 })
+
 export class AdminProfileComponent implements OnInit {
   userForm!:FormGroup;
   role:string="Admin";
   isVisible:boolean=false;
+  bookForm!:FormGroup;
+
 
   constructor(private fb:FormBuilder,    private userService:UserService,
     ) { }
@@ -26,6 +40,13 @@ export class AdminProfileComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
+    this.bookForm=this.fb.group({
+      name: new FormControl('', [Validators.required,Validators.minLength(3)]),
+      seller: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      author: new FormControl('', [Validators.required]),
+      price: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required])
+    })
   }
 
   handleCancel(){

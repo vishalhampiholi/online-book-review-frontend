@@ -11,19 +11,18 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
+    "@angular/cdk": "^13.3.6",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
     "@angular/core": "~13.1.0",
     "@angular/forms": "~13.1.0",
+    "@angular/material": "^13.3.6",
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
-<<<<<<< HEAD
-    "ng-zorro-antd": "^13.2.1",
-=======
     "bootstrap": "^5.1.3",
+    "ng-zorro-antd": "^13.2.1",
     "ngx-bootstrap-navbar": "^1.0.0",
->>>>>>> a6e744d9b14ec4c365da39f755a12d49e098d618
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
